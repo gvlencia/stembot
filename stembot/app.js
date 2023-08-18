@@ -10,7 +10,7 @@ const schedule = require('node-schedule');
 const server = require('http').Server(app);
 const io = require('socket.io')(server, {
   cors: {
-    origin: 'http://localhost:3000'
+    origin: 'https://simantap.kaospoloskato.com/'
 }
 });
 
@@ -78,16 +78,6 @@ try {
     console.log(error)
 }
 
-// const ceknomor = nomorhpdefault.findOne({});
-// ceknomor.then(async (data) => {
-//     if(data){
-//         console.log(data.phonenumber + ' data ditemukan')
-//         loadWhatsappSession(data.phonenumber)
-//     } else {
-//         console.log("Need Login")
-//     }
-// })
-
 const createWhatsappSession = (nomorhp, socket) => {
     console.log('bikin client baru')
     client = new Client({
@@ -99,7 +89,6 @@ const createWhatsappSession = (nomorhp, socket) => {
     });
     
     client.on('qr', qr => {
-        console.log("bikin QR")
         qrstring = qr
         socket.emit('qr', {qrstring});
     });
@@ -171,7 +160,6 @@ const createWhatsappSessionBroadcast = (nomorhp, socket) => {
     
 
     clientbroadcast.on('qr', qr => {
-        console.log("bikin QR")
         qrstring = qr
         socket.emit('qr', {qrstring});
     });
