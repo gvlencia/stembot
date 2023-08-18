@@ -76,15 +76,15 @@ try {
     console.log(error)
 }
 
-const ceknomor = nomorhpdefault.findOne({});
-ceknomor.then(async (data) => {
-    if(data){
-        console.log(data.phonenumber + ' data ditemukan')
-        loadWhatsappSession(data.phonenumber)
-    } else {
-        console.log("Need Login")
-    }
-})
+// const ceknomor = nomorhpdefault.findOne({});
+// ceknomor.then(async (data) => {
+//     if(data){
+//         console.log(data.phonenumber + ' data ditemukan')
+//         loadWhatsappSession(data.phonenumber)
+//     } else {
+//         console.log("Need Login")
+//     }
+// })
 
 const createWhatsappSession = (nomorhp, socket) => {
     console.log('bikin client baru')
