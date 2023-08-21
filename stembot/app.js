@@ -10,7 +10,8 @@ const schedule = require('node-schedule');
 const server = require('http').Server(app);
 const io = require('socket.io')(server, {
   cors: {
-    origin: 'https://simantap.kaospoloskato.com/'
+    origin: 'https://simantap.kaospoloskato.com/',
+    methods: ["GET", "POST"]
 }
 });
 
@@ -56,7 +57,6 @@ let store;
 const databaseUrl = process.env.DATABASE_URL;
 mongoose.connect(databaseUrl).then(() => {
     store = new MongoStore({ mongoose : mongoose });
-    console.log(store)
 });
 const database = mongoose.connection;
 
@@ -251,7 +251,6 @@ const signoutWhatsappSessionBroadcast = (nomorhp, socket) => {
 }
 
 io.on('connection', (socket) => {
-    console.log(`Socket ${socket.id} connected`);
 
     if(status_socket){
         const connected = "Connect!!!"
