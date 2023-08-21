@@ -10,7 +10,7 @@ const schedule = require('node-schedule');
 const server = require('http').Server(app);
 const io = require('socket.io')(server, {
   cors: {
-    origin: 'https://simantap.kaospoloskato.com/',
+    origin: 'https://simantap.kaospoloskato.com',
     methods: ["GET", "POST"]
 }
 });
