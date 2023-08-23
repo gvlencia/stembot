@@ -9,10 +9,12 @@ const schedule = require('node-schedule');
 
 const server = require('http').Server(app);
 const io = require('socket.io')(server, {
-  cors: {
-    origin: 'https://simantap.kaospoloskato.com',
-    methods: ["GET", "POST"]
-}
+    cors: {
+        origin: 'https://simantap.kaospoloskato.com',
+        methods: ["GET", "POST"],
+        credentials: true,
+    },
+    allowEIO3: true,
 });
 
 //halo
